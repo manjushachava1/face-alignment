@@ -15,8 +15,9 @@ def decode(base64_string):
 
 app = Flask(__name__)
 
-@app.route("/predict", methods=["POST"])
-def predict():
+
+@app.route("/", methods=["GET"])
+def home():
     img = decode(request.args["img"])
 
     fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._3D, face_detector='sfd', device='cpu')
