@@ -1,3 +1,5 @@
+import sys
+sys.path.append("..")
 import face_alignment
 from skimage import io
 import numpy as np
@@ -15,14 +17,15 @@ def decode(base64_string):
 
 app = Flask(__name__)
 
-@app.route("/predict", methods=["POST"])
-def predict():
+
+@app.route("/", methods=["GET"])
+def home():
     img = decode(request.args["img"])
 
     fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._3D, face_detector='sfd', device='cpu')
 
     preds = fa.get_landmarks_from_image(img)
-    preds = np.asarray(preds)
+    preds = np.asarray(preds).tolist()
 
     return jsonify(preds)
 
