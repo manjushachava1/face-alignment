@@ -21,6 +21,7 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 def home():
     img = decode(request.args["img"])
+    print("Trying to do the stuff")
 
     fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._3D, face_detector='sfd', device='cpu')
 

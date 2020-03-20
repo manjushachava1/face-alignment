@@ -49,6 +49,12 @@ models_urls = {
     'depth': 'https://www.adrianbulat.com/downloads/python-fan/depth-2a464da4ea.pth.tar',
 }
 
+local_urls = {
+    '2DFAN-4': 'face_alignment/2DFAN4-11f355bf06.pth.tar',
+    '3DFAN-4': 'face_alignment/3DFAN4-7835d9f11d.pth.tar',
+    'depth': 'face_alignment/depth-2a464da4ea.pth.tar',
+}
+
 
 class FaceAlignment:
     def __init__(self, landmarks_type, network_size=NetworkSize.LARGE,
@@ -76,6 +82,7 @@ class FaceAlignment:
             network_name = '3DFAN-' + str(network_size)
 
         fan_weights = load_url(models_urls[network_name], map_location=lambda storage, loc: storage)
+        # fan_weights = torch.load(local_urls[network_name], map_location=lambda storage, loc: storage)
         self.face_alignment_net.load_state_dict(fan_weights)
 
         self.face_alignment_net.to(device)
@@ -86,6 +93,7 @@ class FaceAlignment:
             self.depth_prediciton_net = ResNetDepth()
 
             depth_weights = load_url(models_urls['depth'], map_location=lambda storage, loc: storage)
+            # depth_weights = torch.load(local_urls['depth'], map_location=lambda storage, loc: storage)
             depth_dict = {
                 k.replace('module.', ''): v for k,
                 v in depth_weights['state_dict'].items()}
