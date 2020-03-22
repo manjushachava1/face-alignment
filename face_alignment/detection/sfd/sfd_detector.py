@@ -17,7 +17,7 @@ class SFDDetector(FaceDetector):
     def __init__(self, device, path_to_detector=None, verbose=False):
         super(SFDDetector, self).__init__(device, verbose)
 
-        Initialise the face detector
+        # Initialise the face detector
         if path_to_detector is None:
             model_weights = load_url(models_urls['s3fd'])
         else:
