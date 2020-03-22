@@ -33,3 +33,9 @@ def home():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True, port=8080)
+
+
+# inputs: image, weight, height, age, ethnicity
+# @app.route("/get/<weight>/<height>/<age>/<ethnicity>", methods=["GET"])
+# def home(weight, height, age, ethnicity):
+   
