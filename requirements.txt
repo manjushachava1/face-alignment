@@ -1,7 +1,7 @@
 opencv-python
-torch
 scipy>=0.17.0
 scikit-image
 Flask
 face-alignment
-tqdm-4.42.1
+tqdm==4.42.1
+pytorch

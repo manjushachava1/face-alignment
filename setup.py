@@ -1,5 +1,6 @@
 import io
 import os
+import setuptools
 from os import path
 import re
 from setuptools import setup, find_packages
@@ -59,7 +60,7 @@ setup(
     url="https://github.com/1adrianb/face-alignment",
 
     # Package info
-    packages=find_packages(exclude=('test',)),
+    packages= setuptools.find_packages(exclude=('test',)),
 
     install_requires=requirements,
     license='BSD',
