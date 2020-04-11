@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 opencv-python
 scipy
 scikit-image
 Flask
 tqdm
 torch
+=======
+opencv-python
+scipy>=0.17.0
+scikit-image
+>>>>>>> 29304e53f0ec3d2fff602c3426184731c7b857f6
